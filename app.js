@@ -38,10 +38,24 @@ app.get('/blogs', function(req, res){
         if(err){
             console.log(err);
         } else{
-            // console.log(blogs);
             res.render("index", {blogs: blogs});
         }
     });
+});
+
+app.post('/blogs', function(req, res){
+    console.log(req.body.blog);
+    Blog.create(req.body.blog, function(err, blog){
+        if (err){
+            res.render("new");
+        } else{
+            res.redirect("/blogs");
+        }
+    })
+});
+
+app.get('/blogs/new', function(req, res){
+    res.render("new");
 });
 
 app.listen(3000, function(){
