@@ -9,3 +9,7 @@ h1{
 .container.main{
     margin-top: 4.5em;
 }
+
+#delete{
+    display: inline;
+}
